@@ -3,7 +3,6 @@ const fs = require('fs')
 const rl = require('readline')
 const db = require('../db')
 
-
 const ETL_TEMPLATE = (etlOptions) => {
   return new Promise((resolve, reject) => {
     let field, currentProductID, proceed;

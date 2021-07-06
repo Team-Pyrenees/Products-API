@@ -5,23 +5,9 @@ const productsStylesFeaturesPhotosSKUS = (line, keys) => {
   tableEntry[id] = {};
   let value;
   keys.forEach((key, i) => {
-    value = (
-      key === 'url'
-      || key === 'thumbnail_url'
-      || key === 'name'
-      || key === 'sale_price'
-      || key === 'original_price'
-      || key === 'default_price'
-      || key === 'size'
-      || key === 'slogan'
-      || key === 'description'
-      || key === 'category'
-      || key === 'feature'
-      || key === 'value'
-      ) ? field[i].replace('"', '').replace('"', '')
-      : (key === 'id' || key === 'style_id' || key === 'quantity' || 'productId') ? Number(field[i])
-      : key === 'default?' ? ((field[i] === 'true') ? 1 : 0)
-      : field[i];
+    value = key === 'default?'* ? ((field[i] === 'true') ? 1 : 0)
+      : (key === 'id' || key === 'styleId' || key === 'quantity' || 'productId' || 'product_id') ? Number(field[i])
+      : field[i].replace('"', '').replace('"', '');
     tableEntry[id][key] = value;
   });
   return tableEntry;
